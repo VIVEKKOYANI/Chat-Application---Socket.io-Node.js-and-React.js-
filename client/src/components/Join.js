@@ -5,7 +5,13 @@ const Join = () => {
     const [name, setName] = useState('');
     const [room, setroom] = useState('');
     return (
-    <h1>Join</h1>
+    <div className="joinOuterContainer">
+        <div className="joinOuterContainer">
+            <h1 className="heading">Join</h1>
+            <div><input placeholder="Name" className="joinInput" type="text" onChange={} /></div>
+            <div><input placeholder="Room" className="joinInput mt-20" type="text" onChange={} /></div>
+        </div>
+    </div>
     )
 }
 
