@@ -21,6 +21,11 @@ const Chat = ({ location }) => {
         socket.emit('join', { name, room}, ({error}) => {
             alert(error);
         });
+
+        return () => {
+            socket.emit('disconnect');
+        }
+
     }, [ENDPOINT, location.search]);
     return (
     <h1>Chat</h1>
