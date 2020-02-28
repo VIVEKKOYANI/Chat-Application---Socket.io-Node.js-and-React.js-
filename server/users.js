@@ -1,1 +1,3 @@
 const users = [];
+
+const addUser = () => {}
