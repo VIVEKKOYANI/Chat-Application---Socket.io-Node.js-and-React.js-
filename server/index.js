@@ -18,6 +18,8 @@ io.on('connection', (socket) => {
 
         if(error) return callback(error);
 
+        socket.emit('message', {user: 'admin', text: `${user.name}, Welcome to the room ${user.room}`});
+
         socket.join(user.room);
     });
 
