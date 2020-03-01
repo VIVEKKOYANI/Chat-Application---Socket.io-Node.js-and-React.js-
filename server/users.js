@@ -7,5 +7,9 @@ const removeUser = () => {
 }
 
 const getUser = () => {
-    
+
+}
+
+const getUsersInRoom = () => {
+
 }
