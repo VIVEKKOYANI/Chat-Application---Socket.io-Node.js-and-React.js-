@@ -1,47 +1,43 @@
-import React, { useState, useEffect} from 'react';
-import queryString from 'query-string';
-import io from 'socket.io-client';
+import React, { useState, useEffect } from "react";
+import queryString from "query-string";
+import io from "socket.io-client";
 
 let socket;
 
 const Chat = ({ location }) => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'localhost:5000';
-    
-    useEffect(() => {
-        const { name, room} = queryString.parse(location.search);
+  const [name, setName] = useState("");
+  const [room, setRoom] = useState("");
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const ENDPOINT = "localhost:5000";
 
-        socket = io(ENDPOINT);
+  useEffect(() => {
+    const { name, room } = queryString.parse(location.search);
 
-        setName(name);
-        setRoom(room);
+    socket = io(ENDPOINT);
 
-        console.log(socket);
-        socket.emit('join', { name, room}, ({error}) => {
-            alert(error);
-        });
+    setName(name);
+    setRoom(room);
 
-        return () => {
-            socket.emit('disconnect');
+    console.log(socket);
+    socket.emit("join", { name, room }, ({ error }) => {
+      alert(error);
+    });
 
-            socket.off();
-        }
+    return () => {
+      socket.emit("disconnect");
 
-    }, [ENDPOINT, location.search]);
+      socket.off();
+    };
+  }, [ENDPOINT, location.search]);
 
-    useEffect(() => {
-        socket.on('message', (message) => {
-            setMessages([...messages,message])
-        })
-    }, [messages]);
+  useEffect(() => {
+    socket.on("message", message => {
+      setMessages([...messages, message]);
+    });
+  }, [messages]);
 
-    
-    return (
-    <h1>Chat</h1>
-    )
-}
+  return <h1>Chat</h1>;
+};
 
 export default Chat;
