@@ -9,7 +9,7 @@ const InfoBar = () => {
             <img className="onlineIcon" src={onlineIcon} alt="online image" />
             <h3>roomName</h3>
         </div>
-        <div className="RightInnerContainer">
+        <div className="rightInnerContainer">
             <a href="/"><img src={closeIcon} alt="close image" /></a>
         </div>
     </div>
