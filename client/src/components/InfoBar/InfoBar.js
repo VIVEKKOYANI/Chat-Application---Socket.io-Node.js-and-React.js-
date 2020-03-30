@@ -3,7 +3,7 @@ import onlineIcon from "../../icons/onlineIcon.png";
 import closeIcon from "../../icons/closeIcon.png";
 import "./InfoBar.css";
 
-const InfoBar = ({ room }) => {
+const InfoBar = ({ room }) => (
   <div className="infoBar">
     <div className="leftInnerContainer">
       <img className="onlineIcon" src={onlineIcon} alt="online image" />
@@ -14,7 +14,7 @@ const InfoBar = ({ room }) => {
         <img src={closeIcon} alt="close image" />
       </a>
     </div>
-  </div>;
-};
+  </div>
+)
 
 export default InfoBar;
